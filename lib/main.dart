@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:questionapp/home/newpages.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:questionapp/view/newpages.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -10,6 +11,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Newpages());
+    return MaterialApp(
+      home: ScreenUtilInit(
+        splitScreenMode: true,
+        minTextAdapt: true,
+        designSize: Size(320, 800),
+        child: Newpages(),
+      ),
+    );
   }
 }
