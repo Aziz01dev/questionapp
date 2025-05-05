@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:questionapp/controller/question_controller.dart';
 
 class Newpages extends StatefulWidget {
@@ -9,12 +10,12 @@ class Newpages extends StatefulWidget {
 }
 
 class _NewpagesState extends State<Newpages> {
-  final QuestionController controller = QuestionController();
   final PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    final questions = controller.allQuestions;
+    final controller = context.watch<QuestionController>(); // <-- avval bu
+    final questions = controller.allQuestions; // <-- keyin bu
 
     return Scaffold(
       body: SafeArea(
